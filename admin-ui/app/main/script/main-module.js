@@ -10,8 +10,8 @@
       'toastr',
       'ngMessages',
       'ngProgress',
-      'uiGmapgoogle-maps',
       'ngMaterial',
+      'uiGmapgoogle-maps',
       'MadSkillsDeveloper.login',
       'MadSkillsDeveloper.learn'
   ])
@@ -37,11 +37,11 @@
 
     function onStateChaneStart(e, to, toParams) {
 
-      var identity = authService.isLoggedIn();
-      if (!identity && to.name !== 'login') {
-        e.preventDefault();
-        $state.go('login', {to: to.name, toParams: toParams}, {location: false});
-      }
+      // var identity = authService.isLoggedIn();
+      // if (!identity && to.name !== 'login') {
+      //   e.preventDefault();
+      //   $state.go('login', {to: to.name, toParams: toParams}, {location: false});
+      // }
 
     }
 
