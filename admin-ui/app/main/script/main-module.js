@@ -2,16 +2,17 @@
 
   'use strict';
   angular.module('MadSkillsDeveloperWeb', [
-    'ngAnimate',
-    'ngResource',
-    'ngSanitize',
-    'ui.router',
-    'ngCookies',
-    'oitozero.ngSweetAlert',
-    'toastr',
-    'ngMessages',
-    'ngProgress',
-    'MadSkillsDeveloper.login'
+      'ngAnimate',
+      'ngResource',
+      'ngSanitize',
+      'ui.router',
+      'ngCookies',
+      'toastr',
+      'ngMessages',
+      'ngProgress',
+      'uiGmapgoogle-maps',
+      'MadSkillsDeveloper.login',
+      'MadSkillsDeveloper.learn'
   ])
     .config(configure)
     .run(run);
@@ -36,10 +37,10 @@
     function onStateChaneStart(e, to, toParams) {
 
       var identity = authService.isLoggedIn();
-      if (!identity && to.name !== 'login') {
-        e.preventDefault();
-        $state.go('login', {to: to.name, toParams: toParams}, {location: false});
-      }
+      //if (!identity && to.name !== 'login') {
+      //  e.preventDefault();
+      //  $state.go('login', {to: to.name, toParams: toParams}, {location: false});
+      //}
 
     }
 
