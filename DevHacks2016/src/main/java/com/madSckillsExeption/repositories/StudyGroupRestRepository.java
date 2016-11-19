@@ -13,4 +13,6 @@ public interface StudyGroupRestRepository extends JpaRepository<StudyGroup, Long
     List<StudyGroup> findBySubjectIdAndMentorIsNull(Long subjectId);
 
     List<StudyGroup> findBySubjectIdAndMentorNotNull(Long subjectId);
+
+    List<StudyGroup> findByMentorId(Long mentorUserId);
 }
