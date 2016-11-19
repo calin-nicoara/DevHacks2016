@@ -30,4 +30,7 @@ public class Question {
     private String question;
 
     private String response;
+
+    @ManyToOne
+    private Subject subject;
 }

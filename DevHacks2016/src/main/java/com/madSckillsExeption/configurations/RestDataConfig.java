@@ -1,6 +1,7 @@
 package com.madSckillsExeption.configurations;
 
 import com.madSckillsExeption.entities.Quiz;
+import com.madSckillsExeption.entities.QuizQuestionMap;
 import com.madSckillsExeption.entities.StudyGroup;
 import com.madSckillsExeption.entities.Subject;
 
@@ -16,5 +17,6 @@ public class RestDataConfig extends RepositoryRestMvcConfiguration {
         config.exposeIdsFor(Subject.class);
         config.exposeIdsFor(StudyGroup.class);
         config.exposeIdsFor(Quiz.class);
+        config.exposeIdsFor(QuizQuestionMap.class);
     }
 }
