@@ -2,15 +2,16 @@
 
   'use strict';
   angular.module('MadSkillsDeveloper.login').controller('LoginController', loginController);
-  function loginController($state, socket, $auth) {
+  function loginController($state, socket, $auth, $rootScope) {
 
     var vm = this;
 
     vm.authenticate = function (provider) {
       $auth.authenticate(provider)
         .then(function (res) {
-          debugger
+    return res
         })
+
     };
 
     var verifyAuthentication = function () {
