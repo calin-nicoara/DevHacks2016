@@ -1,25 +1,25 @@
-angular.module('eCarrefourWeb')
+angular.module('MadSkillsDeveloperWeb')
+  .factory('authenticationInterceptor', authenticationInterceptor);
 
-  // This http interceptor listens for authentication failures
-  .factory('authenticationInterceptor', function ($injector) {
+function authenticationInterceptor($injector) {
 
-    var interceptor = {
-      responseError: function (error) {
-        switch (error.status) {
-         case 401:
-           $injector.get('$state').go('login', {retryLogin: false}, {reload: true});
-           break;
-         case 403:
-           $injector.get('$state').go('notAuthorized');
-           break;
-         default:
-           break;
-        }
-        
-        throw error;
+  var interceptor = {
+    responseError: function (error) {
+      switch (error.status) {
+        case 401:
+          $injector.get('$state').go('login', {retryLogin: false}, {reload: true});
+          break;
+        case 403:
+          $injector.get('$state').go('notAuthorized');
+          break;
+        default:
+          break;
       }
-    };
 
-    return interceptor;
+      throw error;
+    }
+  };
 
-  });
+  return interceptor;
+
+}

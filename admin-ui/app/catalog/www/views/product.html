@@ -1,7 +1,0 @@
-<button type="button" class="btn btn-default btn-tab" ng-repeat="view in productCtrl.viewList"
-        ui-sref="{{view.name}}"
-        ng-class="{'btn-primary': productCtrl.isActiveTab(view.name)}">
-  {{view.title}}
-</button>
-
-<div class="mainTabView" ui-view=""></div>
