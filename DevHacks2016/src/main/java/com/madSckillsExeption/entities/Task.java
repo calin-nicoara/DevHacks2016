@@ -1,6 +1,6 @@
 package com.madSckillsExeption.entities;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,4 +15,16 @@ import lombok.NoArgsConstructor;
 @Builder
 @EqualsAndHashCode
 public class Task {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
+    private String taskLink;
+
+    @ManyToOne
+    private Mentor mentor;
+
+    @ManyToOne
+    private StudyGroup studyGroup;
 }
