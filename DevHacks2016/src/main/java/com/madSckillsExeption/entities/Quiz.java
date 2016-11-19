@@ -22,8 +22,13 @@ public class Quiz {
 
     private String level;
 
+    private String name;
+
     @ManyToOne
     private AppUser user;
+
+    @ManyToOne
+    private Subject subject;
 
     private Long rewardPoints;
 }

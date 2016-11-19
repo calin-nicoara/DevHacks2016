@@ -2,17 +2,18 @@
 
   'use strict';
   angular.module('MadSkillsDeveloperWeb', [
-    'ngAnimate',
-    'ngResource',
-    'ngSanitize',
-    'ui.router',
-    'ngCookies',
-    'oitozero.ngSweetAlert',
-    'toastr',
-    'ngMessages',
-    'ngProgress',
-    'MadSkillsDeveloper.login',
-    'ngMaterial'
+      'ngAnimate',
+      'ngResource',
+      'ngSanitize',
+      'ui.router',
+      'ngCookies',
+      'toastr',
+      'ngMessages',
+      'ngProgress',
+      'uiGmapgoogle-maps',
+      'ngMaterial',
+      'MadSkillsDeveloper.login',
+      'MadSkillsDeveloper.learn'
   ])
     .config(configure)
     .run(run);

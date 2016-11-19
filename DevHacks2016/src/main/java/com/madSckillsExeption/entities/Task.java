@@ -22,6 +22,8 @@ public class Task {
 
     private String taskLink;
 
+    private Integer skillLevel;
+
     @ManyToOne
     private AppUser mentorUser;
 
