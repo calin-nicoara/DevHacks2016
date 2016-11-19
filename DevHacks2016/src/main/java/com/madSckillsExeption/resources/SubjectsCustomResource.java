@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@RestController("/custom/subject")
+@RestController("/custom/subjects")
 public class SubjectsCustomResource {
 
     private StudentSubjectMapRepository subjectMapRepository;
