@@ -7,7 +7,6 @@
     var service = {};
     var currentUser = null;
 
-
     //todo resolve catchces and state.go s
 
     var makeCall = function (verb, url, data, params, headers) {

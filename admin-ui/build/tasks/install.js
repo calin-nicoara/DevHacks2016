@@ -27,7 +27,7 @@ gulp.task('bower-js', function () {
       }))
     .pipe(filterJS)
     .pipe(concat('bower.min.js'))
-    .pipe(uglify())
+    // .pipe(uglify())
     .pipe(gulp.dest(paths.destBower));
 });
 
@@ -45,7 +45,7 @@ gulp.task('bower-css', function () {
                          }))
     .pipe(filterCss)
     .pipe(concat('bower.min.css'))
-    .pipe(cleanCss())
+    // .pipe(cleanCss())
     .pipe(gulp.dest(paths.destBower));
 });
 
