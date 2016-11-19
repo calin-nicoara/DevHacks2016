@@ -9,10 +9,7 @@ gulp.task('webserver', function(){
                       livereload: true,
                       open: 'http://localhost:9000',
                       proxies: [
-                        { source: '/api', target: 'http://localhost:8080/api'},
-                        { source: '/auth', target: 'http://localhost:8080/auth'},
-                        { source: '/media/images', target: 'http://dev-media-server.ecarrefour.ro/api/images'},
-                        { source: '/media/bulk', target: 'http://dev-media-server.ecarrefour.ro/api/bulk'}
+                        { source: '/api', target: 'http://localhost:8080/api'}
                       ],
                       fallback: 'index.html'
                     }));
