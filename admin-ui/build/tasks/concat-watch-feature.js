@@ -22,9 +22,11 @@ glob.sync('app/*').forEach(function (featurePath) {
     gulp.task(taskName, function () {
       return gulp.src(featurePath + '/script/**/*.js')
         .pipe(order([
-                      '**/*-module-*.js',
                       '**/*-module.js',
-                      '**/*.js'
+                      '**/*.factory.js',
+                      '**/*.service.js',
+                      '**/*.directive.js',
+                      '**/*.controller.js'
                     ]))
         .pipe(concat(featureName + '.js'))
         .pipe(gulp.dest(binFolder));

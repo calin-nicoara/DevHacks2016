@@ -12,7 +12,7 @@ var environment =  argv.env || 'local';
 gulp.task('scripts', function () {
 	return gulp.src([paths.binJs])
 		.pipe(concat('app.min.js'))
-    .pipe(gulpIf(environment !== 'local', ngAnnotate()))
-		.pipe(gulpIf(environment !== 'local', uglify()))
+    // .pipe(gulpIf(environment !== 'local', ngAnnotate()))
+		// .pipe(gulpIf(environment !== 'local', uglify()))
 		.pipe(gulp.dest(paths.destJs));
 });

@@ -2,17 +2,17 @@
 
   'use strict';
   angular.module('MadSkillsDeveloperWeb', [
-      'ngAnimate',
-      'ngResource',
-      'ngSanitize',
-      'ui.router',
-      'ngCookies',
-      'oitozero.ngSweetAlert',
-      'toastr',
-      'ngMessages',
-      'ngProgress',
-      'MadSkillsDeveloper.login'
-    ])
+    'ngAnimate',
+    'ngResource',
+    'ngSanitize',
+    'ui.router',
+    'ngCookies',
+    'oitozero.ngSweetAlert',
+    'toastr',
+    'ngMessages',
+    'ngProgress',
+    'MadSkillsDeveloper.login'
+  ])
     .config(configure)
     .run(run);
 
@@ -43,8 +43,8 @@
 
     }
 
-    $rootScope.$on('$destroy', function() {
-        unStateChangeStart();
+    $rootScope.$on('$destroy', function () {
+      unStateChangeStart();
     });
 
   }
