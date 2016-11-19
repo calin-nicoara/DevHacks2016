@@ -23,4 +23,6 @@ public class StudyGroupModel {
     private String subjectName;
 
     private String linkImage;
+
+    private Long mentorId;
 }

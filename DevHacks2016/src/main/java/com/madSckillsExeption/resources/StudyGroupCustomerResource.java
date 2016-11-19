@@ -59,6 +59,7 @@ public class StudyGroupCustomerResource {
                             .slackLink(studyGroup.getSlackLink())
                             .subjectId(subject.getId())
                             .subjectName(subject.getName())
+                            .mentorId(studyGroup.getMentor().getId())
                             .build();
                 }).collect(Collectors.toList());
 
