@@ -1,0 +1,20 @@
+<div class="panel panel-default">
+
+    <div class="panel-heading">Product EAN List</div>
+    <div class="panel-body">
+        <div class="col-md-2">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>Ean Code</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="item in eanCtrl.eanList">
+                    <td>{{item.eanCode}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

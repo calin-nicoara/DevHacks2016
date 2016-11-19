@@ -1,0 +1,33 @@
+<div class="panel panel-default">
+
+  <div class="panel-heading">Product Prices</div>
+  <div class="panel-body">
+
+    <ul class="list-group">
+
+      <li href="#" class="list-group-item" ng-repeat="(key,name) in priceCtrl.priceMapper">
+        <h4 class="list-group-item-heading">{{name}}</h4>
+
+        <p ng-if="key==='price'" class="list-group-item-text">
+          <input type="number" ng-model="priceCtrl.productDetails.price"
+                 ng-disabled="priceCtrl.editDisabled"
+                 input-number-filter="FLOAT" min="0">
+          <button type="button" class="btn btn-primary" ng-if="priceCtrl.editDisabled"
+                  ng-click="priceCtrl.enablePriceEdit()">Edit
+          </button>
+
+            <span ng-if="!priceCtrl.editDisabled">
+                <button type="button" class="btn btn-primary"
+                        ng-click="priceCtrl.savePriceInfo()">Save</button>
+                <button type="button" class="btn btn-primary"
+                        ng-click="priceCtrl.cancelPriceEdit()">Cancel</button>
+            </span>
+
+        </p>
+
+        <p ng-if="key!=='price'" class="list-group-item-text">{{priceCtrl.productDetails[key]}}</p>
+      </li>
+
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+<div class="panel panel-default">
+
+  <div class="panel-heading">
+    Images
+    <div class="btn-file btn btn-default add-margin-left"
+         data-toggle="tooltip" title="Upload images">
+
+      <span class="glyphicon glyphicon-upload" aria-hidden="true"></span>
+      <input type="file" file-model="imagesCtrl.uploadedFiles" multiple/>
+    </div>
+
+
+  </div>
+  <div class="panel-body row">
+
+    <div class="data-loading-bar" ng-show="imagesCtrl.busy"></div>
+
+    <div ng-repeat="image in imagesCtrl.imageList"
+         class="col-xs-4 col-sm-3 col-md-3 image-container"
+         ng-show="!imagesCtrl.busy" ng-drop="true"
+         ng-drop-success="imagesCtrl.dropComplete($index, $data, $event)">
+
+      <div ng-drag-data="{{ {url: image} }}" ng-drag="true" draggable="false">
+
+        <div class="thumbnail">
+          <img ng-src="{{imagesCtrl.getImageMediaSrc(image)}}"/>
+        </div>
+
+        <button type="button" class="btn btn-default btn-xs" ng-click="imagesCtrl.removeImage(image)">
+          <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+        </button>
+
+        <div class="text-center">{{imagesCtrl.getName(image)}}</div>
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+</div>
+

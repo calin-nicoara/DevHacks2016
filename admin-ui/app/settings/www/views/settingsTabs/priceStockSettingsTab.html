@@ -1,0 +1,71 @@
+<div class="panel panel-default">
+
+  <div class="panel-heading">Price settings</div>
+  <div class="panel-body">
+
+    <ul class="list-group">
+      <li class="list-group-item" href="#" ng-repeat="(key, value) in priceStockCtrl.priceSettingsMap">
+        <h4 class="list-group-item-heading">{{value}}</h4>
+
+        <input type="number" input-number-filter="" ng-model="priceStockCtrl.dataPrice[key]" ng-disabled="!priceStockCtrl.priceSettingsEdit.enabled">
+      </li>
+
+    </ul>
+
+    <span ng-if="!priceStockCtrl.priceSettingsEdit.enabled">
+        <button type="button" class="btn btn-primary"
+                ng-click="priceStockCtrl.priceSettingsEdit.edit()">Edit
+        </button>
+    </span>
+
+    <span ng-if="priceStockCtrl.priceSettingsEdit.enabled">
+            <button type="button" class="btn btn-primary"
+                    ng-click="priceStockCtrl.priceSettingsEdit.save()">Save
+            </button>
+            <button type="button" class="btn btn-primary"
+                    ng-click="priceStockCtrl.priceSettingsEdit.cancel()">Cancel
+            </button>
+    </span>
+
+  </div>
+
+
+</div>
+
+<div class="panel panel-default">
+
+  <div class="panel-heading">Stock settings</div>
+  <div class="panel-body">
+
+    <ul class="list-group">
+      <li class="list-group-item" href="#" ng-repeat="(key, value) in priceStockCtrl.stockSettingsMap">
+        <h4 class="list-group-item-heading">{{value}}</h4>
+
+        <input type="number" input-number-filter="" ng-model="priceStockCtrl.dataStock[key]" ng-disabled="!priceStockCtrl.stockSettingsEdit.enabled">
+      </li>
+
+    </ul>
+
+    <span ng-if="!priceStockCtrl.stockSettingsEdit.enabled">
+        <button type="button" class="btn btn-primary"
+                ng-click="priceStockCtrl.stockSettingsEdit.edit()">Edit
+        </button>
+    </span>
+
+    <span ng-if="priceStockCtrl.stockSettingsEdit.enabled">
+            <button type="button" class="btn btn-primary"
+                    ng-click="priceStockCtrl.stockSettingsEdit.save()">Save
+            </button>
+            <button type="button" class="btn btn-primary"
+                    ng-click="priceStockCtrl.stockSettingsEdit.cancel()">Cancel
+            </button>
+    </span>
+
+  </div>
+
+
+</div>
+
+
+
+

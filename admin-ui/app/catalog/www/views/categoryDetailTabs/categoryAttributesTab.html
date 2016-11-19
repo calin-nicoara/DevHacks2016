@@ -1,0 +1,79 @@
+<div class="panel panel-default">
+
+  <div class="panel-heading">Category Attributes</div>
+  <div class="panel-body">
+
+    <div class="row">
+      <div class="col-md-3">
+        <button type="button" class="btn btn-success btn-action add" data-toggle="modal"
+                data-target="#addAttributeModal" ng-click="prepareAttrModel()">Add Attribute</button>
+      </div>
+    </div>
+
+    <!-- Direct category attributes-->
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
+      <div class="panel panel-default" ng-repeat="attribute in info.category.categoryAttributes track by $index">
+        <div class="panel-heading" role="tab" id="{{'heading' + attribute.id}}">
+          <h4 class="panel-title">
+            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" data-target="#{{'collapse' + attribute.id}}" aria-expanded="true" aria-controls="{{'collapse' + attribute.id}}">
+              {{attribute.name}}
+            </a>
+            <button type="button" class="btn btn-default removeAttribute" aria-label="Left Align"
+                    ng-click="removeCategoryAttribute(attribute.id)">
+              <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            </button>
+          </h4>
+        </div>
+        <div id="{{'collapse' + attribute.id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="{{'heading' + attribute.id}}">
+          <div class="panel-body">
+            <ul>
+              <li ng-repeat="(key, value) in categoryAttributeMappings">
+                <span ng-if="isAttributeIcon(key, attribute.type)">Icon: <br><img class="img-responsive" ng-src="{{getImageMediaSrc(attribute.values[0])}}" alt=""></span>
+                <span ng-if="!isAttributeIcon(key, attribute.type)">{{value}}: {{attribute[key]}}</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- End direct category attributes-->
+
+    <!-- Inherited category attributes-->
+    <div class="panel-group" id="accordionInherited" role="tablist" aria-multiselectable="true"
+         ng-if="info.category.categoryInheritedAttributes.length > 0">
+      <h3>Inherited attributes</h3>
+      <div class="panel panel-default" ng-repeat="attribute in info.category.categoryInheritedAttributes track by $index">
+        <div class="panel-heading" role="tab" id="{{'heading' + attribute.id}}" >
+          <h4 class="panel-title">
+            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordionInherited" data-target="#{{'collapse' + attribute.id}}" aria-expanded="true" aria-controls="{{'collapse' + attribute.id}}">
+              {{attribute.name}}
+            </a>
+            <span class="category-path">{{attribute.categoryPath}}</span>
+          </h4>
+        </div>
+        <div id="{{'collapse' + attribute.id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="{{'heading' + attribute.id}}">
+          <div class="panel-body">
+            <ul>
+              <li ng-repeat="(key, value) in categoryAttributeMappings">
+                <span ng-if="isAttributeIcon(key, attribute.type)">Icon: <br><img class="img-responsive" ng-src="{{getImageMediaSrc(attribute.values[0]}}" alt=""></span>
+                <span ng-if="!isAttributeIcon(key, attribute.type)">{{value}}: {{attribute[key]}}</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- End inherited category attributes-->
+
+  </div>
+
+  <add-attribute></add-attribute>
+</div>
+
+
+
+
+

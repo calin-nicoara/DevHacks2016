@@ -1,0 +1,14 @@
+<div class="modal-header">
+  <h3 class="modal-title">Select icon for category: {{info.category.categoryDetails.name}}</h3>
+</div>
+<div class="modal-body">
+  <div class="row">
+    <div class="iconSelect col-md-3 col-lg-2" ng-repeat="fontIcon in fontIconClasses track by $index"
+        ng-click="saveIcon(fontIcon)">
+      <i class="fa fa-5x" ng-class="fontIcon"></i>
+      <div class="overlay-image" ng-if="info.category.categoryDetails.icon === fontIcon">
+        <i class="fa fa-check fa-2x" aria-hidden="true" style="color: green"></i>
+      </div>
+    </div>
+  </div>
+</div>

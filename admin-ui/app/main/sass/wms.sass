@@ -1,0 +1,52 @@
+$colors: ('lightgrey', 'lightgreen', 'orange')
+
+.rack-block
+  height: 150px
+  width: 250px
+  border: 1px solid black
+  text-align: center
+  background: lightgrey
+  margin: 20px
+  padding: 20px
+
+.rack-block:hover, .location-selected:hover, .location-free:hover
+  opacity: .5
+  cursor: pointer
+
+.level-display:not(:last-child)
+  margin-bottom: 5px
+  white-space: nowrap
+
+.rack-display
+  margin: 10px
+  overflow-x: scroll
+
+.location-display
+  text-align: center
+  padding: 20px
+  display: inline-block
+  border-bottom: 1px solid white
+
+.location-display:not(:last-child)
+  border-right: 1px solid white
+
+.location-selected
+  background: orange
+
+.location-free
+  background: lightgreen
+
+.location-used
+    background: lightgrey
+    cursor: not-allowed
+
+@each $color in $colors
+  .color-#{$color}
+    width: 20px
+    height: 20px
+    background: #{$color}
+    margin: 5px
+
+.legend-element
+  display: inline-block
+  margin: 10px

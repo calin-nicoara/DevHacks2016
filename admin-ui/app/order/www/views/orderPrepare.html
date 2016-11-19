@@ -1,0 +1,90 @@
+<div>
+  <table class="table table-bordered table-hover">
+    <thead>
+    <tr>
+      <th>Product Site Name</th>
+      <th>Ordered quantity</th>
+      <th>Product Price</th>
+      <th>Status</th>
+      <th>Found</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+
+        <tr ng-repeat="product in orderProducts"
+            ng-class="product.type=='REPLACEMENT' ? 'replacement' : '' ">
+            <td>{{product.title}}</td>
+
+            <td>{{product.quantity}}</td>
+
+            <td>{{product.price}}</td>
+
+            <td ng-if="product.type == 'INITIAL' ">{{product.status}}</td>
+            <td ng-if="product.type == 'REPLACEMENT' "></td>
+
+            <td ng-if="product.type == 'INITIAL' &&
+             orderSummary.orderStatus !== 'WAITING_FOR_CLIENT' &&
+             orderSummary.orderStatus !=='VALIDATED_BY_CLIENT' ">
+
+                <button class="btn" ng-click="updateStatus(product, 'FOUND')"
+                        ng-class="product.status == 'FOUND' ? 'btn-primary' : 'btn-default' "
+                        ng-disabled="product.status == 'FOUND' ">Yes
+                </button>
+
+                <button class="btn" ng-click="updateStatus(product, 'NOT_FOUND')"
+                        ng-class="product.status != 'NEW' && product.status != 'FOUND' ? 'btn-primary' : 'btn-default' "
+                        ng-disabled="product.status != 'NEW' && product.status != 'FOUND' ">No
+                </button>
+
+            </td>
+            <td ng-if="product.type == 'REPLACEMENT' "></td>
+
+            <td ng-if="product.type == 'INITIAL'">
+
+                <button class="btn btn-primary" data-toggle="modal"
+                        data-target="#replaceProductModal"
+                        ng-click="startReplace(product)" ng-show="product.status == 'NOT_FOUND' ">
+                    Replace
+                </button>
+
+                <button class="btn btn-primary"
+                        ng-click="acknowledge(product)"
+                        ng-show="product.status === 'ACCEPTED' || product.status === 'REJECTED' ">
+                    Acknowledge
+                </button>
+
+            </td>
+            <td ng-if="product.type == 'REPLACEMENT' "></td>
+
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">Comment for current order</div>
+    <div class="panel-body">
+
+        <form>
+            <div class="form-group">
+                <textarea rows="5" ng-model="currentComment" class="form-control"
+                          placeholder='{{previousComment}}'></textarea>
+            </div>
+            <button class="btn btn-default" ng-click="saveComment()"
+                    ng-disabled="currentComment === null">Save
+            </button>
+        </form>
+
+    </div>
+</div>
+
+<!--add cancel button-->
+
+<button class="btn btn-primary" ng-disabled="!finalizeEnabled" ng-click="finalizeOrder()">Finalize
+</button>
+<button class="btn btn-default" ui-sref="order({id: orderId})">Order details</button>
+
+

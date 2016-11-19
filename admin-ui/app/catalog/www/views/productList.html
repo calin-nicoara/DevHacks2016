@@ -1,0 +1,81 @@
+<div class="list-actions">
+
+  <div class="btn btn-default btn-file" data-toggle="tooltip" title="Upload images for products">
+
+    <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Images
+
+    <input type="file" file-model="productsCtrl.imageFile"/>
+  </div>
+
+  <div class="btn btn-default btn-file" data-toggle="tooltip"
+       title="Upload article assignment to category file">
+    <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> Assignment
+    <input type="file" file-model="productsCtrl.assignmentFile" class="btn btn-primary"/>
+  </div>
+
+  <button class="btn btn-danger" ng-click="productsCtrl.reindexProducts()">
+    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+    Reindex all products
+  </button>
+
+  <input ng-if="productsCtrl.isActiveTab('assignList')" type="button"
+         ng-disabled="selectedRows.length === 0" class="btn btn-primary btn-file"
+         data-toggle="modal" data-target="#categoryModal" value="Assign to category"/>
+
+</div>
+
+
+<button type="button" class="btn btn-default btn-tab" ng-repeat="view in productsCtrl.viewList"
+        ui-sref="{{view.name}}"
+        ng-class="{'btn-primary': productsCtrl.isActiveTab(view.name)}">
+  {{view.title}}
+</button>
+
+<div class="mainTabView" ui-view=""></div>
+
+
+<add-product-to-category
+  ng-if="productsCtrl.categoryList"
+  is-product-list-page="true"
+  category-paths="[]"
+  category-list="productsCtrl.categoryList"
+  selected-rows="selectedRows">
+</add-product-to-category>
+
+
+<!--MODAL-->
+<div class="modal fade" id="reportModal" tabindex="-1" role="dialog" aria-labelledby="basicModal"
+     aria-hidden="true">
+
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Images</h4>
+      </div>
+
+      <div class="modal-body">
+
+        <table ng-table="productsCtrl.tableParams" class="table" show-filter="true">
+
+          <tr ng-repeat="picture in $data"
+              ng-class="picture.status=='ACCEPTED' ? 'accepted' : 'rejected' ">
+
+            <td title="'Name'" filter="{ name: 'text'}" sortable="'name'">
+              {{picture.name}}
+            </td>
+            <td title="'Status'" filter="{ status: 'text'}" sortable="'status'">
+              {{picture.status}}
+            </td>
+
+          </tr>
+        </table>
+
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Ok</button>
+      </div>
+    </div>
+  </div>
+</div>

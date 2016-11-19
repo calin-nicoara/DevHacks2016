@@ -1,0 +1,20 @@
+<div class="input-group add-margin-bottom">
+  <span class="input-group-addon" id="basic-addon1">Assign picker</span>
+
+  <div class="btn-group" role="group">
+    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"
+            ng-disabled="selectedOrders.length <= 0 || selectedOrders[0].orderStatus !== 'NEW' ">
+      {{selectedPicker.username || "Pickers"}}
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" >
+      <li ng-repeat="picker in pickers" ng-click="selectPicker(picker)"><a href="">{{picker.username}}</a></li>
+    </ul>
+  </div>
+
+  <button class="btn btn-primary" ng-click="assignPicker(selectedPicker)"
+          ng-disabled="!selectedPicker || selectedOrders.length <= 0">Ok</button>
+
+</div>
+

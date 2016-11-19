@@ -1,0 +1,20 @@
+<a role="button" href="" class="dropdown-toggle alert-badge-container"
+   data-toggle={{vm.getToggle()}} aria-haspopup="true" aria-expanded="false"
+   ng-click="vm.showAllerts()" title="System Alerts">
+
+  <span class="glyphicon glyphicon-bell"></span>
+  <span ng-show="vm.total > 0" class="badge badge-notify">{{vm.total}}</span>
+
+</a>
+
+
+<ul class="dropdown-menu data-alert-list"
+    ng-infinite-scroll="vm.getAlerts()" infinite-scroll-distance='2'>
+
+
+  <li ng-repeat="alert in vm.alerts" ng-click="vm.selectAlert($event, alert)">
+    <a class="data-alert-item" href="">{{alert.message}}</a>
+  </li>
+
+
+</ul>

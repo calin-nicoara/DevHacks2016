@@ -1,0 +1,15 @@
+<div class="list-actions">
+  <a ng-href="{{vm.startDownloadTemplate()}}" target="_blank" class="btn btn-default"
+     ng-disabled="!vm.startDownloadTemplate()">
+    <span class="glyphicon glyphicon-download" aria-hidden="true"></span>
+    Download report
+  </a>
+</div>
+
+<button type="button" class="btn btn-default btn-tab" ng-repeat="view in vm.viewList"
+        ui-sref="{{view.name}}"
+        ng-class="{'btn-primary': vm.isActiveTab(view.name)}">
+  {{view.title}}
+</button>
+
+<div class="mainTabView" ui-view=""></div>

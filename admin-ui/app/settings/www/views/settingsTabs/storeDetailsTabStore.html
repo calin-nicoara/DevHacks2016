@@ -1,0 +1,32 @@
+<div class="panel panel-default">
+
+  <div class="panel-heading">Store conditions</div>
+  <div class="panel-body">
+
+    <ul class="list-group">
+      <li class="list-group-item" href="#" ng-repeat="(key, value) in vm.storeInfoMap">
+        <h4 class="list-group-item-heading">{{value}}</h4>
+
+        <input type="text" ng-model="vm.storeData[key]" ng-disabled="!vm.storeInfoEdit.enabled">
+      </li>
+
+    </ul>
+
+    <span ng-if="!vm.storeInfoEdit.enabled">
+        <button type="button" class="btn btn-primary"
+                ng-click="vm.storeInfoEdit.edit()">Edit
+        </button>
+    </span>
+
+    <span ng-if="vm.storeInfoEdit.enabled">
+            <button type="button" class="btn btn-primary"
+                    ng-click="vm.storeInfoEdit.save()">Save
+            </button>
+            <button type="button" class="btn btn-primary"
+                    ng-click="vm.storeInfoEdit.cancel()">Cancel
+            </button>
+    </span>
+
+  </div>
+
+</div>

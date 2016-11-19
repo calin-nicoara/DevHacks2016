@@ -1,0 +1,41 @@
+<div class="panel panel-default">
+
+  <div class="panel-heading">Delivery store locations</div>
+  <div class="panel-body">
+
+    <div class="header-input">
+      <span>
+        <label>Location </label>
+        <input type="text" ng-model="vm.newLocation.name"
+               ng-click="vm.closeLocationPopover('name')">
+      <md-tooltip md-visible="vm.isValidLocation('name')" md-direction="top">
+        Name is required
+      </md-tooltip>
+
+      </span>
+
+      <span>
+        <label>Zip Code Pattern</label>
+        <input type="text" ng-model="vm.newLocation.zipCodePattern"
+               ng-click="vm.closeLocationPopover('zipCodePattern')">
+        <md-tooltip md-visible="vm.isValidLocation('zipCodePattern')" md-direction="top">
+          This is not a valid Regular Expression
+        </md-tooltip>
+      </span>
+
+    </div>
+
+    <button type="button" class="btn btn-primary" data-toggle="tooltip"
+            title="Add Location"
+            ng-click="vm.addLocation()"> Add Location
+    </button>
+
+    <ng-table-generator columns="vm.storeLocations.columns"
+                        service-get-data="vm.storeLocations.getData(page, size, filter)"
+                        scope-functions="vm.storeLocations.scopeFunctions"
+                        scope-variables="vm.storeLocations.scopeVariables">
+    </ng-table-generator>
+
+  </div>
+
+</div>

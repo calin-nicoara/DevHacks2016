@@ -1,0 +1,53 @@
+$bgDefault: #005AAB
+$bgHighlight: #1ab4d4
+$colDefault: #ffffff
+
+.navbar
+  border-radius: 0 !important
+
+.navbar-default
+  background-color: $bgDefault
+  border-color: $bgDefault
+
+  ul.nav.navbar-nav
+    > li
+      font-size: large
+      > a
+        color: $colDefault !important
+    .tab-active
+      border-bottom: 2px solid $bgHighlight
+
+ul.navbar-right
+  margin-right: 10px
+
+.alert-container
+  width: 45px !important
+
+.alert-badge-container
+
+  width: 100%
+  height: 30px
+  cursor: pointer
+  background-color: inherit !important
+  .badge-notify
+    background-color: red
+    position: relative
+    top: -35px
+    left: 5px
+
+  .glyphicon-bell
+    font-size: large
+  .badge
+    font-size: x-small
+
+.data-alert-list
+  background-color: $colDefault
+  border-radius: 15px
+  max-height: 200px
+  min-height: 200px
+  overflow-y: scroll
+  .data-alert-item
+    color: $bgDefault !important
+
+.navbar-default .navbar-nav>.open>a
+  background-color: $bgDefault !important

@@ -1,0 +1,5 @@
+<button type="button" class="btn btn-default btn-tab" ng-repeat="tab in tabs"
+        ng-click="onClickTab(tab)"
+        ng-class="{'btn-primary':isActiveTab(tab.url)}">{{tab.title}}</button>
+
+<div class="mainTabView" ng-include="currentTab"></div>

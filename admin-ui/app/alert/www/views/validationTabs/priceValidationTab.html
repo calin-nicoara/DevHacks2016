@@ -1,0 +1,14 @@
+<div class="action-buttons">
+  <button ng-click="validationCtrl.postPriceValidation(validationCtrl.selectedRows, 'ACCEPTED')"
+          class="btn btn-info">Accept selected prices</button>
+
+  <button ng-click="validationCtrl.postPriceValidation(validationCtrl.selectedRows, 'REJECTED')"
+          class="btn btn-info">Reject selected prices</button>
+</div>
+<ng-table-generator columns="data.columns" ng-if="data"
+                    service-get-data="data.getData(page, size)"
+                    selected-rows="validationCtrl.selectedRows"
+                    scope-functions="validationCtrl.priceValidation.scopeFunctions"
+                    is-filterable="true"
+                    is-selectable="true">
+</ng-table-generator>

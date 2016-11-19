@@ -1,0 +1,31 @@
+<div class="panel panel-default">
+  <div class="panel-heading">Summary</div>
+  <div class="panel-body">
+
+    <ul class="list-group">
+      <li class="list-group-item" ng-repeat="(key, value) in vm.orderDetailsMapper">
+        <h4 class="list-group-item-heading">{{value}}</h4>
+        <p class="list-group-item-text">{{vm.selectedOrder[key]}}</p>
+      </li>
+    </ul>
+
+  </div>
+
+</div>
+
+<div class="panel panel-default">
+
+  <div class="panel-heading">Client details</div>
+
+  <div class="panel-body">
+
+    <ul class="list-group">
+      <li class="list-group-item" ng-repeat="(key, value) in vm.clientInfoMapper">
+        <h4 class="list-group-item-heading">{{value}}</h4>
+        <p class="list-group-item-text">{{vm.selectedOrder.clientInfo[key]}}</p>
+      </li>
+    </ul>
+
+  </div>
+
+</div>

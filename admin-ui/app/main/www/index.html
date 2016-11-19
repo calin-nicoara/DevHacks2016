@@ -1,0 +1,44 @@
+<!doctype html>
+<html ng-app="eCarrefourWeb">
+<head>
+  <meta charset="utf-8">
+  <title>eCarrefour Admin</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+  <link rel="icon" href="css/icons/favicon.svg">
+  <link rel="stylesheet" href="lib/bower.min.css">
+  <link rel="stylesheet" href="css/style.min.css">
+
+
+  <style>[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+  }</style>
+
+</head>
+<body class="ng-cloak" ng-controller="AppController as app">
+<!--[if lte IE 8]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a
+  href="http://browsehappy.com/">upgrade
+  your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<!-- Add your site or application content here -->
+
+<custom-nav-bar ng-if="!app.hideNavbar"></custom-nav-bar>
+
+<div class="page-header text-center" ng-if="app.title !== null">
+  <h2>{{app.title.name}}</h2>
+</div>
+
+<div class="container-fluid">
+  <div ui-view></div>
+</div>
+
+
+<script src="lib/bower.min.js"></script>
+<script src="js/app.min.js"></script>
+
+</body>
+</html>

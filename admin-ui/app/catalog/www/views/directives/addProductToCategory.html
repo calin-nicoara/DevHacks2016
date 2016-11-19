@@ -1,0 +1,30 @@
+<div class="modal fade" id="categoryModal" tabindex="-1" role="dialog" aria-labelledby="basicModal"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Add product to categories</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <button type="button" class="btn btn-primary btn-action" ng-click="addProductCtrl.expandAll()">Expand All</button>
+                    </div>
+                    <div class="col-md-6">
+                        <button type="button" class="btn btn-primary btn-action" ng-click="addProductCtrl.collapseAll()">Collapse All</button>
+                    </div>
+                </div>
+
+                <div id="tree"></div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default" data-dismiss="modal">Close</button>
+                <button class="btn btn-default" ng-click="addProductCtrl.addProductCategoryAssignments()">
+                    Save assignments
+                </button>
+            </div>
+
+        </div>
+    </div>
+</div>
+

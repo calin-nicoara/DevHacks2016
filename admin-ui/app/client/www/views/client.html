@@ -1,0 +1,51 @@
+<div class="panel panel-default shadow-box">
+
+  <div class="panel-heading">Details</div>
+
+  <div class="panel-body">
+
+
+    <ul class="list-group">
+
+      <li class="list-group-item" ng-repeat="(key, value) in clientCtrl.clientDetailsMapping">
+        <h4 class="list-group-item-heading">{{value}}</h4>
+
+        <p class="list-group-item-text">{{clientCtrl.clientDetails[key]}}</p>
+      </li>
+
+    </ul>
+  </div>
+
+</div>
+
+<div class="panel panel-default shadow-box">
+
+
+  <div class="panel-heading">Addresses</div>
+
+  <div class="panel-body">
+
+
+    <ul class="list-group">
+
+
+      <li class="list-group-item" ng-repeat="address in clientCtrl.clientAddresses">
+        <h4 class="list-group-item-heading">{{address.firstname + " " + address.lastname}}</h4>
+        <small>{{address.phone || ""}}</small>
+
+        <p class="list-group-item-text">
+          {{(address.city || "") + ", "}}
+          {{(address.district || "") + ", "}}
+          {{(address.street || "") + " "}}
+          {{(address.street_no || "") + ", "}}
+          {{(address.buiding || "") + ", "}}
+          {{(address.apartment || "") + ", "}}
+          {{(address.floor || "") + ", "}}
+          {{(address.zip_code || "") + ", "}}
+        </p>
+      </li>
+
+    </ul>
+  </div>
+
+</div>

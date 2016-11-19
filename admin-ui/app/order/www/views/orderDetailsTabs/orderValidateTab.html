@@ -1,0 +1,72 @@
+<div>
+  <table class="table table-bordered table-hover">
+    <thead>
+    <tr>
+      <th>Product Site Name</th>
+      <th>Ordered quantity</th>
+      <th>Product Price</th>
+      <th>Status</th>
+      <th>Found</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr ng-repeat="product in data.orderAdminProductModels">
+      <td>{{product.initial.title}}</td>
+
+
+      <td>{{product.initial.quantity}}</td>
+
+      <td>{{product.initial.price}}</td>
+
+
+      <td>{{product.status}}</td>
+
+
+      <td>
+
+        <div class="btn-group" data-toggle="buttons">
+          <label class="btn btn-default">
+            <input type="radio" name="isFound" value="1" ng-checked="product.status != 'NEW' || product.status != 'FOUND' "
+              ng-click="setFound(product)"
+            /> Yes
+          </label>
+          <label class="btn btn-default">
+            <input type="radio" name="isFound" value="0" ng-checked="product.status == 'FOUND'"
+                   ng-click="setNotFound(product)"
+            /> No
+          </label>
+
+        </div>
+
+      </td>
+
+      <td>
+        <button class="btn btn-primary" ng-if="product.status == 'NOT_FOUND' " >Replace</button>
+      </td>
+
+    </tr>
+
+    </tbody>
+  </table>
+</div>
+
+
+<div class="panel panel-default">
+  <div class="panel-heading">Comment for current order</div>
+  <div class="panel-body">
+
+    <form>
+      <div class="form-group">
+        <textarea rows="5" ng-model="currentComment" class="form-control" placeholder="comment..."></textarea>
+      </div>
+      <button class="btn btn-default" ng-click="saveComment()" ng-disabled="currentComment === null">Save</button>
+    </form>
+
+  </div>
+</div>
+
+
+<a id="cancelBtn" class="btn btn-primary" role="button">Cancel</a>
+<a id="submitBtn" class="btn btn-primary" role="button">Submit</a>

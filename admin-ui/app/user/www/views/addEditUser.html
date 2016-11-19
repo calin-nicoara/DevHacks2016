@@ -1,0 +1,85 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <h4 class="modal-title" id="myModalLabel">Add new user</h4>
+  </div>
+  <div class="modal-body">
+    <form role="form" name="addUser" data-toggle="validator" id="userForm">
+      <div class="form-group">
+        <label for="category-name">Username:</label>
+        <input type="input" class="form-control" id="category-name"
+               ng-model="addUserCtrl.editModel.username"
+               required="required"/>
+      </div>
+
+      <div class="form-group">
+        <label for="description">Password:</label>
+        <input type="password" class="form-control" id="description"
+               ng-model="addUserCtrl.editModel.password"
+        />
+      </div>
+
+      <div class="form-group">
+        <label>Roles: </label><br>
+        <div class="row">
+          <div class="col-md-3"><label for="role-admin">Admin Role:</label></div>
+          <div class="col-md-2"><input type="checkbox" class="" id="role-admin"
+                                       ng-model="addUserCtrl.editModel.roles['ROLE_ADMIN']"/></div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-3"><label for="role-coord">Coordinator Role:</label></div>
+          <div class="col-md-2"><input type="checkbox" class="" id="role-coord"
+                                       ng-model="addUserCtrl.editModel.roles['ROLE_COORD']"/></div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-3"><label for="role-picker">Picker Role:</label></div>
+          <div class="col-md-2"><input type="checkbox" class="" id="role-picker"
+                                       ng-model="addUserCtrl.editModel.roles['ROLE_PICKER']"/></div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-3"><label for="role-ccagent">CCagent Role:</label></div>
+          <div class="col-md-2"><input type="checkbox" class="" id="role-ccagent"
+                                       ng-model="addUserCtrl.editModel.roles['ROLE_CCAGENT']"/>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-3"><label for="role-wms-admin">WMS admin:</label></div>
+          <div class="col-md-2"><input type="checkbox" class="" id="role-wms-admin"
+                                       ng-model="addUserCtrl.editModel.roles['ROLE_WMS_ADMIN']"/>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="form-group">
+        <label>Stores: </label><br>
+        <div class="row" ng-repeat="store in addUserCtrl.stores">
+          <div class="col-md-3"><label for="store-{{store.code}}">{{store.name}}</label></div>
+          <div class="col-md-2"><input type="checkbox" class="" id="store-{{store.code}}"
+                                       ng-model="addUserCtrl.editModel.stores[store.code]"/></div>
+        </div>
+
+      </div>
+
+      <div class="form-group">
+        <label for="user-activ">Activ: </label><br>
+        <input type="checkbox" class="" id="user-activ" ng-model="addUserCtrl.editModel.enabled"
+               required="required"/>
+      </div>
+
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default" ng-click="addUserCtrl.cancel()">Close</button>
+    <button type="submit" class="btn btn-default"
+            data-ng-click="addUserCtrl.addSaveUser()">
+      Save User
+    </button>
+
+    </form>
+  </div>
+
+</div>

@@ -1,0 +1,17 @@
+<div class="panel panel-default">
+
+    <div class="panel-heading">Meti fields</div>
+    <div class="panel-body">
+
+        <ul class="list-group">
+
+            <li class="list-group-item" ng-repeat="(key,name) in metiCtrl.metiMappings">
+                <h4 class="list-group-item-heading">{{name}}</h4>
+
+                <p class="list-group-item-text">{{metiCtrl.productDetails[key]}}</p>
+            </li>
+
+
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+<ng-table-generator ng-if="orderListCtrl.tableInfo"
+                    columns="orderListCtrl.tableInfo.columns"
+                    service-get-data="orderListCtrl.tableInfo.getData(page, size, filter)"
+                    scope-functions="orderListCtrl.tableInfo.scopeFunctions"
+                    is-filterable="true"
+                    is-selectable="orderListCtrl.isCoord"
+                    selected-rows="orderListCtrl.selectedRows"
+                    default-filters="orderListCtrl.tableInfo.defaultFilters">
+</ng-table-generator>
+
+<div ng-if="orderListCtrl.isCoord">
+  <assign-picker selected-orders="orderListCtrl.selectedRows"
+                 after-assign="orderListCtrl.clearSelection(pickerAssigned)"></assign-picker>
+</div>
