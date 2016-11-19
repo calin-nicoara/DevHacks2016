@@ -1,4 +1,4 @@
-package com.madSckillsExeption.resources.models;
+package com.madSckillsExeption.resources;
 
 
 import com.madSckillsExeption.entities.Question;
