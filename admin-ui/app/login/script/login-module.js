@@ -6,7 +6,7 @@
   function configure($stateProvider, $authProvider) {
 
     $authProvider.github({
-                           clientId: 'febade3bf015f6b35a46'
+                           clientId: 'e580105629067318aaa8'
                          });
 
     $stateProvider.state('login', {

@@ -11,7 +11,8 @@
     'toastr',
     'ngMessages',
     'ngProgress',
-    'MadSkillsDeveloper.login'
+    'MadSkillsDeveloper.login',
+    'ngMaterial'
   ])
     .config(configure)
     .run(run);

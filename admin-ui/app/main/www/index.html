@@ -9,6 +9,7 @@
   <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
   <link rel="icon" href="css/icons/favicon.svg">
   <link rel="stylesheet" href="lib/bower.min.css">
+  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
   <link rel="stylesheet" href="css/style.min.css">
 
 
@@ -17,7 +18,7 @@
   }</style>
 
 </head>
-<body class="ng-cloak" ng-controller="AppController as app">
+<body class="ng-cloak" ng-controller="AppController as vm" layout="column">
 <!--[if lte IE 8]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a
   href="http://browsehappy.com/">upgrade
@@ -26,12 +27,98 @@
 
 <!-- Add your site or application content here -->
 
-<custom-nav-bar></custom-nav-bar>
 
- <div ui-view></div>
+<div layout="row" flex>
+
+  <md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="{{vm.hideNavbar}}">
+
+    <md-toolbar class="md-medium-tall" layout="row" layout-align="center" flex>
+      <h2>#MadSkillsDeveloper</h2>
+    </md-toolbar>
+    <md-content layout="column" flex>
+
+
+      <md-list>
+
+        <md-list-item class="md-2-line" ng-repeat="item in vm.navbarItems" ng-click="null">
+
+
+          <img ng-src="{{item.icon}}" class="md-avatar" alt="{{item.title}}"/>
+
+
+          <div class="md-list-item-text">
+            <h3>{{item.title}}</h3>
+            <p>{{item.description}}</p>
+          </div>
+
+          <md-divider></md-divider>
+
+        </md-list-item>
+
+      </md-list>
+
+
+    </md-content>
+
+  </md-sidenav>
+
+
+  <div layout="column" flex md-theme="green" id="content">
+
+    <md-toolbar layout="row">
+
+      <div class="md-toolbar-tools">
+
+
+      </div>
+
+    </md-toolbar>
+    <md-content  class="main-view" ui-view layout="column" layout-padding flex></md-content>
+  </div>
+
+
+</div>
+
+
+<!--<md-content layout="row" flex>-->
+
+<!--<md-sidenav-->
+<!--class="md-sidenav-left md-whiteframe-z2"-->
+<!--md-component-id="left"-->
+<!--md-is-locked-open="true">-->
+
+<!--<md-content layout="row" layout-align="center center" flex>-->
+<!--<md-list>-->
+
+<!--<md-list-item class="md-2-line" ng-repeat="item in vm.navbarItems" ng-click="null">-->
+
+
+<!--<img ng-src="{{item.icon}}" class="md-avatar" alt="{{item.title}}" />-->
+
+
+<!--<div class="md-list-item-text">-->
+<!--<h3>{{item.title}}</h3>-->
+<!--<p>{{item.description}}</p>-->
+<!--</div>-->
+
+<!--<md-divider ></md-divider>-->
+
+<!--</md-list-item>-->
+
+<!--</md-list>-->
+
+<!--</md-content>-->
+
+
+<!--</md-sidenav>-->
+
+
+<!--</md-content>-->
 
 
 <script src="lib/bower.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+<script src="https://cdn.jsdelivr.net/satellizer/0.15.5/satellizer.min.js"></script>
 <script src="js/app.min.js"></script>
 
 </body>

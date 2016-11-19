@@ -2,32 +2,36 @@
 
   'use strict';
   angular.module('MadSkillsDeveloper.login').controller('LoginController', loginController);
-  function loginController($state, socket, $auth, $rootScope) {
+  function loginController($state, socket, $auth, authService) {
 
     var vm = this;
 
     vm.authenticate = function (provider) {
       $auth.authenticate(provider)
         .then(function (res) {
-    return res
+
+
+
+
+          return res
         })
 
     };
 
     var verifyAuthentication = function () {
-      // if ($state.params.retryLogin) {
-      //
-      //   if (authService.isLoggedIn()) {
-      //     successLogin();
-      //   }
-      //   else {
-      //     authService.getAuthenticatedUser()
-      //       .then(successLogin);
-      //   }
-      // }
-      // else {
-      //   authService.login();
-      // }
+      if ($state.params.retryLogin) {
+
+        if (authService.isLoggedIn()) {
+          successLogin();
+        }
+        else {
+          authService.getAuthenticatedUser()
+            // .then(successLogin);
+        }
+      }
+      else {
+        authService.login();
+      }
     };
 
     verifyAuthentication();
