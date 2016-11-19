@@ -1,7 +1,10 @@
 package com.madSckillsExeption.resources;
 
 import com.madSckillsExeption.entities.StudyGroup;
+import com.madSckillsExeption.entities.Subject;
 import com.madSckillsExeption.repositories.StudyGroupRestRepository;
+import com.madSckillsExeption.repositories.UserStudyGroupMapRepository;
+import com.madSckillsExeption.resources.models.StudyGroupModel;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -11,19 +14,23 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/custom/studyGroups")
 public class StudyGroupCustomerResource {
 
     private StudyGroupRestRepository studyGroupRestRepository;
+    private UserStudyGroupMapRepository userStudyGroupMapRepository;
 
     @Autowired
-    public StudyGroupCustomerResource(StudyGroupRestRepository studyGroupRestRepository) {
+    public StudyGroupCustomerResource(StudyGroupRestRepository studyGroupRestRepository,
+                                      UserStudyGroupMapRepository userStudyGroupMapRepository) {
         this.studyGroupRestRepository = studyGroupRestRepository;
+        this.userStudyGroupMapRepository = userStudyGroupMapRepository;
     }
 
-    @GetMapping
+    @GetMapping(params = {"hasMentor", "subjectId"})
     public ResponseEntity<List<StudyGroup>> getGroupsBySubjectWithoutMentors(@RequestParam("hasMentor") Boolean hasMentor,
                                                                        @RequestParam("subjectId") Long subjectId) {
         List<StudyGroup> studyGroups;
@@ -36,5 +43,25 @@ public class StudyGroupCustomerResource {
 
         return ResponseEntity.ok(studyGroups);
 
+    }
+
+    @GetMapping(params = {"userId"})
+    public ResponseEntity<List<StudyGroupModel>> getStudyGroupsByUser(@RequestParam("userId") Long userId) {
+        List<StudyGroupModel> userStudyGroupMaps = userStudyGroupMapRepository.findByUserId(userId)
+                .stream().map(userStudyGroupMap -> {
+                    Subject subject = userStudyGroupMap.getStudyGroup().getSubject();
+                    StudyGroup studyGroup = userStudyGroupMap.getStudyGroup();
+
+                    return StudyGroupModel.builder()
+                            .id(studyGroup.getId())
+                            .linkImage(subject.getLinkImage())
+                            .name(studyGroup.getName())
+                            .slackLink(studyGroup.getSlackLink())
+                            .subjectId(subject.getId())
+                            .subjectName(subject.getName())
+                            .build();
+                }).collect(Collectors.toList());
+
+        return ResponseEntity.ok(userStudyGroupMaps);
     }
 }
