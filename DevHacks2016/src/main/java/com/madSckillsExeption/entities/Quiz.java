@@ -23,7 +23,7 @@ public class Quiz {
     private String level;
 
     @ManyToOne
-    private User user;
+    private AppUser user;
 
     private Long rewardPoints;
 }

@@ -1,11 +1,11 @@
 package com.madSckillsExeption.repositories;
 
-import com.madSckillsExeption.entities.StudyGroup;
+import com.madSckillsExeption.entities.Subject;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 
-@RepositoryRestResource(collectionResourceRel = "subject", path = "api/subject")
-public interface SubjectRestRepository extends JpaRepository<StudyGroup, Long> {
+@RepositoryRestResource(collectionResourceRel = "subjects", path = "subjects")
+public interface SubjectRestRepository extends JpaRepository<Subject, Long> {
 }

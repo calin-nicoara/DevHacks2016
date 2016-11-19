@@ -23,7 +23,7 @@ public class Task {
     private String taskLink;
 
     @ManyToOne
-    private Mentor mentor;
+    private AppUser mentorUser;
 
     @ManyToOne
     private StudyGroup studyGroup;
