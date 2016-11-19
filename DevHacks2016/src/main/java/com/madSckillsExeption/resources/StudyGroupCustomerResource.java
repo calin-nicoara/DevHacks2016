@@ -65,4 +65,24 @@ public class StudyGroupCustomerResource {
 
         return ResponseEntity.ok(userStudyGroupMaps);
     }
+
+    @GetMapping(params = {"mentorUserId"})
+    public ResponseEntity<List<StudyGroupModel>> getStudyGroupsByMentorUserID(@RequestParam("mentorUserId") Long mentorUserId) {
+        List<StudyGroupModel> userStudyGroupMaps = studyGroupRestRepository.findByMentorId(mentorUserId)
+                .stream().map(studyGroup -> {
+                    Subject subject = studyGroup.getSubject();
+
+                    return StudyGroupModel.builder()
+                            .id(studyGroup.getId())
+                            .linkImage(subject.getLinkImage())
+                            .name(studyGroup.getName())
+                            .slackLink(studyGroup.getSlackLink())
+                            .subjectId(subject.getId())
+                            .subjectName(subject.getName())
+                            .mentorId(studyGroup.getMentor().getId())
+                            .build();
+                }).collect(Collectors.toList());
+
+        return ResponseEntity.ok(userStudyGroupMaps);
+    }
 }
