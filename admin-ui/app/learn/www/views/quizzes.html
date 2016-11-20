@@ -1,0 +1,29 @@
+<div layout="row">
+  <h1>Quizzes</h1>
+</div>
+
+<div layout="column">
+
+  <div layout="row" layout-padding layout-wrap layout-fill style="padding-bottom: 32px;">
+
+    <md-card ng-repeat="quiz in vm.quizzes">
+      <md-card-title>
+        <md-card-title-text>
+          <span class="md-headline">{{quiz.name}}</span>
+          <span class="md-subheadline">Reward: {{quiz.rewardPoints}} Points</span>
+        </md-card-title-text>
+        <md-card-title-media>
+          <div class="md-media-lg card-media">
+            <img ng-src="{{quiz.imageLink}}" alt="">
+          </div>
+        </md-card-title-media>
+      </md-card-title>
+      <md-card-actions layout="row" layout-align="end center">
+        <md-button ui-sref="quizDetail({id:quiz.id})">Take Quiz</md-button>
+      </md-card-actions>
+    </md-card>
+
+  </div>
+
+
+</div>

@@ -34,6 +34,18 @@
           templateUrl: 'views/learningResourcesJavascript.html',
           controller: 'LearningResourcesController as vm'
         });
+
+        $stateProvider.state('quizzes', {
+          url: '/quizzes?subject',
+          templateUrl: 'views/quizzes.html',
+          controller: 'QuizzesController as vm'
+        });
+
+        $stateProvider.state('quizDetail', {
+          url: '/quiz/:id',
+          templateUrl: 'views/quizDetail.html',
+          controller: 'QuizController as vm'
+        });
     }
 
 
