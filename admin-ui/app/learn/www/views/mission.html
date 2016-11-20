@@ -1,0 +1,40 @@
+<div layout="row">
+  <h1 class="md-display-3">Mentor - Your study groups</h1>
+</div>
+
+<div layout="row" layout-padding layout-wrap layout-fill style="padding-bottom: 32px;">
+
+  <md-content md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+
+      <h1>Mission for team : {{vm.studyGroup.name}}</h1>
+      <br>
+
+      <div layout="row">
+        <md-input-container flex="100">
+          <label>Title</label>
+          <input ng-model="vm.task.title">
+        </md-input-container>
+      </div>
+      <div layout="row">
+        <md-input-container flex="100">
+          <label>Description</label>
+          <textarea ng-model="vm.task.description">
+        </md-input-container>
+      </div>
+      <div layout="row">
+        <md-input-container flex="100">
+          <label>Github link</label>
+          <input ng-model="vm.task.taskLink">
+        </md-input-container>
+      </div>
+       <div flex-gt-xs>
+        <h4>Until when</h4>
+        <md-datepicker ng-model="myDate" md-placeholder="Enter date"></md-datepicker>
+      </div>
+
+  </md-content>
+
+
+
+
+</div>

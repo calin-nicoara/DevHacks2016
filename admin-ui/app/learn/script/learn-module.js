@@ -34,29 +34,46 @@
       controller: 'LearningResourcesController as vm'
     });
 
-    $stateProvider.state('quizzes', {
-      url: '/quizzes?subject',
-      templateUrl: 'views/quizzes.html',
-      controller: 'QuizzesController as vm'
-    });
+      $stateProvider.state('quizzes', {
+        url: '/quizzes?subject',
+        templateUrl: 'views/quizzes.html',
+        controller: 'QuizzesController as vm'
+      });
 
-    $stateProvider.state('quizDetail', {
-      url: '/quiz/:id',
-      templateUrl: 'views/quizDetail.html',
-      controller: 'QuizController as vm'
-    });
+      $stateProvider.state('quizDetail', {
+        url: '/quiz/:id',
+        templateUrl: 'views/quizDetail.html',
+        controller: 'QuizController as vm'
+      });
 
+      $stateProvider.state('learningResourcesJavascript', {
+        url: '/learningResources',
+        templateUrl: 'views/learningResourcesJavascript.html',
+        controller: 'LearningResourcesController as vm'
+      });
 
-    $stateProvider.state('startPage', {
-      url: '/start',
-      templateUrl: 'views/startPage.html',
-      controller: 'StartPageController as vm',
-      resolve: {
-        subjects: function (learnService) {
-          return learnService.getAllSubjects();
+      $stateProvider.state('mentor', {
+        url: '/mentor',
+        templateUrl: 'views/mentor.html',
+        controller: 'MentorController as vm'
+      })
+
+      $stateProvider.state('mission', {
+        url: '/mission?groupId',
+        templateUrl: 'views/mission.html',
+        controller: 'MissionController as vm'
+      })
+
+      $stateProvider.state('startPage', {
+        url: '/start',
+        templateUrl: 'views/startPage.html',
+        controller: 'StartPageController as vm',
+        resolve: {
+          subjects: function (learnService) {
+            return learnService.getAllSubjects();
+          }
         }
-      }
-    })
-  }
+      })
+    }
 
 }(angular));
