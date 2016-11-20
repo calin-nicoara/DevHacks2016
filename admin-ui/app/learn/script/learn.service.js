@@ -20,7 +20,6 @@
         });
     };
 
-
     service.getUserSubjects = function () {
       return makeCall('GET', '/custom/subjects?userId=1');
     };
@@ -29,16 +28,29 @@
       return makeCall('GET', '/custom/studyGroups', '', {subjectId: subjectId, hasMentor: true})
     };
 
-    service.addUserToStudyGroup = function(groupId){
-      return makeCall('POST', '/custom/userStudyGroupMaps', {userId: authService.getUser().id, studyGroupId: groupId});
+    service.addUserToStudyGroup = function (groupId) {
+      return makeCall('POST', '/custom/userStudyGroupMaps',
+                      {userId: authService.getUser().id, studyGroupId: groupId});
     };
 
     service.getStudyGroupsForUser = function () {
       return makeCall('GET', '/custom/studyGroups?userId=' + authService.getUser().id);
     };
+    service.getAllSubjects = function () {
+      return makeCall('GET', '/subjects');
+    };
+
+    service.saveNewUserSubject = function (subjectIds) {
+      return makeCall('POST', '/custom/subjects/student?userId=' + authService.getUser().id,
+                      subjectIds)
+    };
+
+    service.saveTeacherSubject = function (subjectIds) {
+      return makeCall('POST', '/custom/subjects/mentor?userId=' + authService.getUser().id,
+                      subjectIds)
+    }
 
     return service;
   }
-
 
 })(angular);

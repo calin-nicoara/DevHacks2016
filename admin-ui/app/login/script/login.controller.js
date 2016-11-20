@@ -15,7 +15,9 @@
             email: 'calin2811@gmail.com',
             imageLink: 'https://avatars2.githubusercontent.com/u/2725593?v=3&s=400'
                                        })
-            .then(successLogin);
+            .then(function () {
+              $state.go('startPage');
+            });
 
           return res
         })
