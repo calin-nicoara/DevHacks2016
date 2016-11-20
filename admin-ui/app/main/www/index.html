@@ -31,14 +31,14 @@
 
 <div layout="row" flex>
 
-  <md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="true" ng-show="vm.user">
+  <md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2 class= sidebar-content" md-component-id="left" md-is-locked-open="true" ng-show="vm.user">
 
-    <md-toolbar class="md-medium-tall" layout="row" layout-align="center" flex>
+    <div layout="row" layout-align="center center" layout-padding>
 
       <h2>#MadSkillsDeveloper</h2>
 
-    </md-toolbar>
-    <md-content layout="column" flex>
+    </div>
+    <md-content layout="column" flex class="sidebar-content">
 
 
       <md-list>
@@ -68,12 +68,15 @@
 
   <div layout="column" flex id="content">
 
+
     <md-nav-bar ng-show="vm.user" layout="row" layout-align="end center" layout-padding md-selected-nav-item="null" nav-bar-aria-label="navigation links">
       <md-nav-item md-nav-click="goto('page1')" name="page1" flex >{{vm.user.fullName}}</md-nav-item>
       <img ng-src="{{vm.user.imageLink}}" class="md-avatar profile-image" alt=""/>
 
 
     </md-nav-bar>
+
+
     <md-content  class="main-view" ui-view layout="column" layout-padding flex></md-content>
   </div>
 

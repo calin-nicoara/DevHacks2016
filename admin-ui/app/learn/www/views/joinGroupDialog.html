@@ -1,10 +1,11 @@
 <md-dialog aria-label="dialog join-group-dialog">
-  <form ng-cloak>
-    <md-toolbar>
-      <div class="md-toolbar-tools">
-        <h2>Let's find your group</h2>
-      </div>
-    </md-toolbar>
+
+  <div layout="row" layout-align="center center" layout-padding>
+
+    <h2>Let's find your Group</h2>
+
+  </div>
+  <md-divider></md-divider>
 
     <md-dialog-content>
       <div class="md-dialog-content">
@@ -30,12 +31,12 @@
 
 
     <md-dialog-actions layout="row">
-      <md-button ng-disabled="!vm.selectedGroup" ng-click="vm.joinGroup()">
+      <md-button class="md-action" ng-disabled="!vm.selectedGroup" ng-click="vm.joinGroup()">
         Join
       </md-button>
-      <md-button ng-click="vm.cancel()">
+      <md-button class="md-warn" ng-click="vm.cancel()">
         Cancel
       </md-button>
     </md-dialog-actions>
-  </form>
+
 </md-dialog>
