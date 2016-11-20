@@ -1,0 +1,36 @@
+<md-dialog aria-label="dialog join-group-dialog">
+
+  <div layout="row" layout-align="center center" layout-padding>
+
+    <h2>Let's add a subject</h2>
+
+  </div>
+  <md-divider></md-divider>
+
+  <md-dialog-content>
+    <div class="md-dialog-content">
+
+      <md-input-container>
+        <label>Title</label>
+        <input ng-model="vm.subject.name">
+      </md-input-container>
+      <br/>
+      <md-input-container>
+        <label>Image url</label>
+        <input ng-model="vm.subject.linkImage">
+      </md-input-container>
+
+    </div>
+  </md-dialog-content>
+
+
+  <md-dialog-actions layout="row">
+    <md-button class="md-action" ng-click="vm.addSubject()">
+      Add
+    </md-button>
+    <md-button class="md-warn" ng-click="vm.cancel()">
+      Cancel
+    </md-button>
+  </md-dialog-actions>
+
+</md-dialog>

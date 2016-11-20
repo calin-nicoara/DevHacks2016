@@ -1,7 +1,7 @@
 (function (angular) {
 
   'use strict';
-  angular.module('MadSkillsDeveloper.learn', ['uiGmapgoogle-maps']).config(configure);
+  angular.module('MadSkillsDeveloper.learn',[]).config(configure);
 
   function configure($stateProvider) {
 
