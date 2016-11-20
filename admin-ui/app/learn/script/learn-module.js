@@ -17,6 +17,12 @@
             controller: 'SelectSubjectController as vm'
         });
 
+        $stateProvider.state('studentStudyGroups', {
+            url: '/student/studyGroups',
+            templateUrl: 'views/studentStudyGroups.html',
+            controller: 'StudentStudyGroups as vm'
+        })
+
     }
 
 

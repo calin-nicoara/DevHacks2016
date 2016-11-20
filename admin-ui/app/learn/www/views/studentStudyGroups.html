@@ -1,0 +1,29 @@
+<div layout="row">
+  <h3>Study Groups</h3>
+</div>
+<div layout="row" layout-padding layout-wrap layout-fill style="padding-bottom: 32px;" ng-cloak>
+
+  <!--<md-whiteframe ng-repeat="subject in vm.subjects" class="md-whiteframe-2dp subject-card" flex-sm="45" flex-gt-sm="35" flex-gt-md="25" layout layout-align="center center">-->
+      <!--<h4>{{subject.name}}</h4>-->
+      <!---->
+  <!--</md-whiteframe>-->
+
+  <md-card ng-repeat="subject in vm.subjects" md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+    <md-card-title>
+      <md-card-title-text>
+        <span class="md-headline">{{subject.name}}</span>
+        <span class="md-subhead">Large</span>
+      </md-card-title-text>
+      <md-card-title-media>
+        <div class="md-media-lg card-media">
+          <img ng-src="{{subject.linkImage}}" alt="">
+        </div>
+      </md-card-title-media>
+    </md-card-title>
+    <md-card-actions layout="row" layout-align="end center">
+      <md-button>View Group Activity</md-button>
+      <md-button>Leave Group</md-button>
+    </md-card-actions>
+  </md-card>
+
+</div>
