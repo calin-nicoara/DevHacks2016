@@ -1,5 +1,5 @@
 <div layout="row">
-  <h3>Study Groups</h3>
+  <h3>Learning Resources</h3>
 </div>
 <div layout="row" layout-padding layout-wrap layout-fill style="padding-bottom: 32px;" ng-cloak>
 
@@ -7,6 +7,7 @@
     <md-card-title>
       <md-card-title-text>
         <span class="md-headline">{{subject.name}}</span>
+        <span class="md-subhead">{{subject.smallTitle}}</span>
       </md-card-title-text>
       <md-card-title-media>
         <div class="md-media-lg card-media">
@@ -15,8 +16,7 @@
       </md-card-title-media>
     </md-card-title>
     <md-card-actions layout="row" layout-align="end center">
-      <md-button>View Group Activity</md-button>
-      <md-button>Leave Group</md-button>
+      <md-button ui-sref="{{subject.linkState}}">Check it out!</md-button>
     </md-card-actions>
   </md-card>
 

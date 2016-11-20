@@ -20,9 +20,20 @@
         $stateProvider.state('studentStudyGroups', {
             url: '/student/studyGroups',
             templateUrl: 'views/studentStudyGroups.html',
-            controller: 'StudentStudyGroups as vm'
-        })
+            controller: 'StudentStudyGroupsController as vm'
+        });
 
+        $stateProvider.state('learningResources', {
+            url: '/learningResources',
+            templateUrl: 'views/learningResources.html',
+            controller: 'LearningResourcesController as vm'
+        });
+
+        $stateProvider.state('learningResourcesJavascript', {
+          url: '/learningResourcesJavascript',
+          templateUrl: 'views/learningResourcesJavascript.html',
+          controller: 'LearningResourcesController as vm'
+        });
     }
 
 

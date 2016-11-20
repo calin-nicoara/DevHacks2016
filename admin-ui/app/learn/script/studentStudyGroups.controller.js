@@ -1,6 +1,6 @@
 (function (angular) {
 
-  angular.module('MadSkillsDeveloper.learn').controller('StudentStudyGroups', studentStudyGroups);
+  angular.module('MadSkillsDeveloper.learn').controller('StudentStudyGroupsController', studentStudyGroups);
 
   function studentStudyGroups($http, $auth) {
     $auth.currentUser = { id: 1};
