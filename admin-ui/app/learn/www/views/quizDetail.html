@@ -1,0 +1,30 @@
+<div layout="row">
+  <h1>Quiz: {{vm.quiz.name}}</h1>
+</div>
+
+<div layout="row" layout-padding layout-wrap layout-fill style="padding-bottom: 32px;" ng-cloak>
+
+
+  <md-card ng-repeat="question in vm.questions" md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+    <md-card-title>
+      <md-card-title-text>
+        <span class="md-headline">{{question.title}}</span>
+      </md-card-title-text>
+    </md-card-title>
+    <md-card-content>
+      <md-radio-group ng-model="question.selection">
+
+          <md-radio-button ng-click="vm.increaseAnswered()" ng-repeat="line in question.lines" ng-value="line[0]" aria-label="Green">
+            {{line[1]}}
+          </md-radio-button>
+        </md-radio-group>
+    </md-card-content>
+
+  </md-card>
+
+  <md-card flex="30">
+    <md-button ng-disabled="vm.numberSelectAnswers !== vm.currentQuestionsInQuiz"
+               ng-click="vm.submitQuiz()">Submit quiz</md-button>
+  </md-card>
+
+</div>
