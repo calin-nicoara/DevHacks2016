@@ -1,0 +1,103 @@
+<div style="background-color: rgba(255, 255, 255, 0.6)">
+
+
+  <md-content ng-show="vm.isNoob">
+
+
+    <h2>
+      Are you a noobie in IT ?
+    </h2>
+
+    <md-radio-group>
+
+      <md-radio-button value="true" class="md-primary" ng-click="vm.startNoobProcess()">
+        Yep
+      </md-radio-button>
+
+      <md-radio-button value="false" class="md-primary" ng-click="vm.isNoob = false">
+        Nope
+      </md-radio-button>
+
+    </md-radio-group>
+
+
+
+  </md-content>
+
+
+
+
+  <md-content ng-show="!vm.isNoob" class="animating-show">
+    <h2>
+      Cool! We have so many subjects that you may be interested in. Please select the ones that appeal to you. Also, don't forget that we are sure
+      that
+      we have something to learn from you too.
+    </h2>
+
+    <md-card ng-repeat="subject in vm.subjectsMap">
+
+      <md-card-title>
+
+        <md-card-title-text ng-click="vm.userSubjects[subject.id] = true">
+          <span class="md-headline">{{subject.name}}</span>
+        </md-card-title-text>
+
+        <md-card-title-media ng-click="vm.userSubjects[subject.id] = true">
+          <div class="md-media-lg card-media">
+            <img ng-src="{{'css/icons/favicon.svg'}}" alt="">
+          </div>
+        </md-card-title-media>
+
+        <md-checkbox ng-model="vm.userSubjects[subject.id]">
+        </md-checkbox>
+
+      </md-card-title>
+
+      <md-card-actions layout="row" layout-align="end center">
+      </md-card-actions>
+    </md-card>
+
+    <md-button class="md-action md-raised" ng-click="vm.saveUserSubjects()">OK</md-button>
+
+  </md-content>
+
+  <md-content ng-show="!vm.isNoob && vm.subjectsCompleted">
+    <h2>
+      Would you like to contribute as a mentor on some subjects as well?
+    </h2>
+
+    <md-card ng-repeat="subject in vm.subjectsMap">
+
+      <md-card-title>
+
+        <md-card-title-text ng-click="vm.teachingSubjects[subject.id] = true">
+          <span class="md-headline">{{subject.name}}</span>
+        </md-card-title-text>
+
+        <md-card-title-media ng-click="vm.teachingSubjects[subject.id] = true">
+          <div class="md-media-lg card-media">
+            <img ng-src="{{'css/icons/favicon.svg'}}" alt="">
+          </div>
+        </md-card-title-media>
+
+        <md-checkbox ng-model="vm.teachingSubjects[subject.id]">
+        </md-checkbox>
+
+      </md-card-title>
+
+      <md-card-actions layout="row" layout-align="end center">
+      </md-card-actions>
+    </md-card>
+
+    <md-button class="md-action md-raised" ng-click="vm.saveTeachingSubjects()">OK</md-button>
+    <md-button class="md-action md-raised" ng-click="vm.saveTeachingSubjects()">Not yet</md-button>
+
+  </md-content>
+
+
+
+
+
+</div>
+
+
