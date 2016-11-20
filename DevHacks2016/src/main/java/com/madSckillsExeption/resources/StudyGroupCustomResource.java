@@ -20,14 +20,14 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/custom/studyGroups")
-public class StudyGroupCustomerResource {
+public class StudyGroupCustomResource {
 
     private StudyGroupRestRepository studyGroupRestRepository;
     private UserStudyGroupMapRepository userStudyGroupMapRepository;
 
     @Autowired
-    public StudyGroupCustomerResource(StudyGroupRestRepository studyGroupRestRepository,
-                                      UserStudyGroupMapRepository userStudyGroupMapRepository) {
+    public StudyGroupCustomResource(StudyGroupRestRepository studyGroupRestRepository,
+                                    UserStudyGroupMapRepository userStudyGroupMapRepository) {
         this.studyGroupRestRepository = studyGroupRestRepository;
         this.userStudyGroupMapRepository = userStudyGroupMapRepository;
     }

@@ -29,4 +29,8 @@ public class Task {
 
     @ManyToOne
     private StudyGroup studyGroup;
+
+    private String description;
+
+    private String title;
 }
