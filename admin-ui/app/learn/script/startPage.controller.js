@@ -79,13 +79,13 @@
         return angular.isDefined(elem) && elem !== null;
       });
 
-      if(vm.teachingSubjects.length === 0){
-        $state.go('learn');
+      if(subjectIds.length === 0){
+        $state.go('learn', {}, {location: 'replace'});
       }
       else {
         learnService.saveTeacherSubject(subjectIds)
           .then(function () {
-            $state.go('learn');
+            $state.go('learn', {}, {location: 'replace'});
           })
       }
     };
