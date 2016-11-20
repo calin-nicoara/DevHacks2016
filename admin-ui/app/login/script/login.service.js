@@ -7,7 +7,6 @@
     var service = {};
     var currentUser = null;
 
-    //todo resolve catchces and state.go s
 
     var makeCall = function (verb, url, data, params, headers) {
       var base = '/api';
@@ -24,9 +23,12 @@
     };
 
 
-    service.login = function () {
-      //todo make call to github to login and save user info here
-
+    service.authenticateUser = function (userModel) {
+      return makeCall('POST', '/users', userModel)
+        .then(function (user) {
+          currentUser = user;
+          return currentUser;
+        })
     };
 
     service.getUser = function () {
@@ -38,14 +40,11 @@
     };
 
     service.getAuthenticatedUser = function () {
-      //todo verify authentication and get user from DB
-      // return makeCall('GET', '/api/auth/me')
-      //   .then(function (user) {
-      //       currentUser = user;
-      //       return currentUser;
-      //   })
-
-      return $q.when(true);
+      return makeCall('GET', '/users/1')
+        .then(function (user) {
+            currentUser = user;
+            return currentUser;
+        })
 
     };
 

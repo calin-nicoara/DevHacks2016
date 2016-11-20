@@ -2,10 +2,11 @@
 
   angular.module('MadSkillsDeveloperWeb').controller('AppController', mainController);
 
-  function mainController($scope) {
+  function mainController($scope, authService) {
     var vm = this;
 
     vm.hideNavbar = false;
+    vm.user = authService.getUser();
 
     vm.navbarItems = [
       {
@@ -26,6 +27,7 @@
     ];
 
     function stateChangeSuccess(ev, toState) {
+      vm.user = authService.getUser();
       if(toState.name === 'login'){
         vm.hideNavbar = true;
       }

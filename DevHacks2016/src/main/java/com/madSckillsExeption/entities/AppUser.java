@@ -27,4 +27,6 @@ public class AppUser {
     private String latitude;
 
     private String longitude;
+
+    private String imageLink;
 }

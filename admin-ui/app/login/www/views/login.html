@@ -1,2 +1,13 @@
-<h1>LOGIN</h1>
-<button ng-click="vm.authenticate('github')">Sign in with GitHub</button>
+<md-content flex layout-align="center center" layout="column" ng-if="!vm.busy">
+
+<div layout="column">
+
+  <img src="css/icons/github.png" class="github-image" alt="GitHub"/>
+    <md-button class="md-raised" flex ng-click="vm.authenticate('github')">Signup with Github</md-button>
+
+</div>
+
+</md-content>
+
+<md-progress-circular ng-if="vm.busy"></md-progress-circular>
+
