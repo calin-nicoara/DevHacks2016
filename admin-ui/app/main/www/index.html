@@ -43,7 +43,7 @@
 
       <md-list>
 
-        <md-list-item class="md-2-line" ng-repeat="item in vm.navbarItems" ng-click="null">
+        <md-list-item class="md-2-line" ng-repeat="item in vm.navbarItems" ng-click="null" ui-sref="{{item.state}}">
 
 
           <img ng-src="{{item.icon}}" class="md-avatar" alt="{{item.title}}"/>

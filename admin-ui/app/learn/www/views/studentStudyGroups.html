@@ -1,23 +1,36 @@
 <div layout="row">
-  <h3>Study Groups</h3>
+  <h1>Study Groups</h1>
 </div>
-<div layout="row" layout-padding layout-wrap layout-fill style="padding-bottom: 32px;" ng-cloak>
 
-  <md-card ng-repeat="subject in vm.subjects" md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
-    <md-card-title>
-      <md-card-title-text>
-        <span class="md-headline">{{subject.name}}</span>
-      </md-card-title-text>
-      <md-card-title-media>
-        <div class="md-media-lg card-media">
-          <img ng-src="{{subject.linkImage}}" alt="">
-        </div>
-      </md-card-title-media>
-    </md-card-title>
-    <md-card-actions layout="row" layout-align="end center">
-      <md-button>View Group Activity</md-button>
-      <md-button>Leave Group</md-button>
-    </md-card-actions>
-  </md-card>
+<div layout="column">
+
+  <div layout="row">
+
+    <md-button class="md-raised" flex="20">Join new group</md-button>
+
+  </div>
+
+
+  <div layout="row" layout-padding layout-wrap layout-fill style="padding-bottom: 32px;">
+
+    <md-card ng-repeat="subject in vm.subjects">
+      <md-card-title>
+        <md-card-title-text>
+          <span class="md-headline">{{subject.name}}</span>
+        </md-card-title-text>
+        <md-card-title-media>
+          <div class="md-media-lg card-media">
+            <img ng-src="{{subject.linkImage}}" alt="">
+          </div>
+        </md-card-title-media>
+      </md-card-title>
+      <md-card-actions layout="row" layout-align="end center">
+        <md-button>View Group Activity</md-button>
+        <md-button>Leave Group</md-button>
+      </md-card-actions>
+    </md-card>
+
+  </div>
+
 
 </div>
