@@ -1,0 +1,41 @@
+<md-dialog aria-label="dialog join-group-dialog">
+  <form ng-cloak>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Let's find your group</h2>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+      <div class="md-dialog-content">
+        <p class=".md-body-2">We will start by choosing a subject from your preferences. Select one of the above</p>
+
+        <md-select ng-model="vm.selectedSubject" placeholder="Subject" class="md-no-underline" ng-change="vm.getStudyGroups()">
+          <md-option ng-repeat="subject in vm.subjects" value="{{subject.id}}">{{subject.name}}</md-option>
+        </md-select>
+
+        <p class=".md-body-2" ng-if="vm.selectedSubject">Great! Now please select a Group</p>
+
+        <md-radio-group ng-model="vm.selectedGroup" ng-if="vm.selectedSubject">
+
+          <md-radio-button value="{{group.id}}" class="md-primary" ng-repeat="group in vm.studyGroups">
+            {{group.name}}
+          </md-radio-button>
+
+        </md-radio-group>
+
+      </div>
+
+    </md-dialog-content>
+
+
+    <md-dialog-actions layout="row">
+      <md-button ng-disabled="!vm.selectedGroup" ng-click="vm.joinGroup()">
+        Join
+      </md-button>
+      <md-button ng-click="vm.cancel()">
+        Cancel
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>

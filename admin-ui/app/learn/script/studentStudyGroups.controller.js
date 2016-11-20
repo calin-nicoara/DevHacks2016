@@ -3,8 +3,10 @@
   angular.module('MadSkillsDeveloper.learn')
     .controller('StudentStudyGroupsController', studentStudyGroups);
 
-  function studentStudyGroups($mdDialog) {
+  function studentStudyGroups($mdDialog, studyGroups) {
     var vm = this;
+
+      vm.subjects = studyGroups;
 
     vm.startJoinGroup = function (event) {
       $mdDialog.show({
@@ -20,8 +22,9 @@
                          }
                        }
                      })
-        .then(function (answer) {
-
+        .then(function (newGroup) {
+          debugger
+          vm.subjects.push(newGroup);
         }, function () {
           //cancel
         });
@@ -50,7 +53,9 @@
     vm.joinGroup = function () {
       learnService.addUserToStudyGroup(vm.selectedGroup)
         .then(function () {
-          $mdDialog.hide('ok');
+          $mdDialog.hide(_.filter(vm.studyGroups, function (elem) {
+            return (elem.id + '') == vm.selectedGroup;
+          })[0]);
         })
     };
 
