@@ -1,5 +1,6 @@
 package com.madSckillsExeption.resources;
 
+import com.madSckillsExeption.entities.AppUser;
 import com.madSckillsExeption.entities.StudyGroup;
 import com.madSckillsExeption.entities.Subject;
 import com.madSckillsExeption.repositories.StudyGroupRestRepository;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RestController
@@ -59,7 +61,7 @@ public class StudyGroupCustomerResource {
                             .slackLink(studyGroup.getSlackLink())
                             .subjectId(subject.getId())
                             .subjectName(subject.getName())
-                            .mentorId(studyGroup.getMentor().getId())
+                            .mentorId(Optional.ofNullable(studyGroup.getMentor()).orElse(new AppUser()).getId())
                             .build();
                 }).collect(Collectors.toList());
 
@@ -79,10 +81,11 @@ public class StudyGroupCustomerResource {
                             .slackLink(studyGroup.getSlackLink())
                             .subjectId(subject.getId())
                             .subjectName(subject.getName())
-                            .mentorId(studyGroup.getMentor().getId())
+                            .mentorId(Optional.ofNullable(studyGroup.getMentor()).orElse(new AppUser()).getId())
                             .build();
                 }).collect(Collectors.toList());
 
         return ResponseEntity.ok(userStudyGroupMaps);
     }
+
 }

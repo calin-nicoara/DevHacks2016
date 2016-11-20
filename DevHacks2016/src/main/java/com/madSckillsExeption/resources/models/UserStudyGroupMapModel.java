@@ -11,21 +11,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 @EqualsAndHashCode
-public class QuizModel {
+public class UserStudyGroupMapModel {
 
     private Long id;
 
-    private String level;
+    private Long userId;
 
-    private String name;
-
-    private String authorName;
-
-    private Long authorId;
-
-    private String subjectName;
-
-    private String imageLink;
-
-    private Long rewardPoints;
+    private Long studyGroupId;
 }
