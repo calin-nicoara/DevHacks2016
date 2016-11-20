@@ -26,6 +26,12 @@
         description: 'Take a look at some collected tutorials from our partners',
         icon: 'css/icons/external_resources.svg',
         state: 'learningResources'
+      },
+      {
+        title: 'Mentor',
+        description: 'If you want to teach others what you know',
+        icon: 'css/icons/teacher.svg',
+        state: 'mentor'
       }
     ];
 

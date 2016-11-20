@@ -33,6 +33,10 @@
                       {userId: authService.getUser().id, studyGroupId: groupId});
     };
 
+    service.getStudyGroupsForMentor = function (userId) {
+      return makeCall('GET', '/custom/studyGroups', '', {mentorUserId: userId})
+    };
+
     service.getStudyGroupsForUser = function () {
       return makeCall('GET', '/custom/studyGroups?userId=' + authService.getUser().id);
     };
@@ -49,6 +53,10 @@
       return makeCall('POST', '/custom/subjects/mentor?userId=' + authService.getUser().id,
                       subjectIds)
     }
+
+    service.getStudyGroup = function(groupId) {
+      return makeCall('GET', '/studyGroups/' + groupId);
+    };
 
     return service;
   }
