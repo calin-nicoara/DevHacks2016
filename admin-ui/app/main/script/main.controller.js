@@ -34,6 +34,14 @@
       if(toState.name === 'login'){
         vm.hideNavbar = true;
       }
+
+      if(toState.hideNavbar){
+        vm.hideNavbar = true;
+      }
+      else {
+        vm.hideNavbar = false;
+      }
+
     }
 
     var unStateChangeSuccess = $scope.$on('$stateChangeSuccess', stateChangeSuccess);

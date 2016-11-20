@@ -51,6 +51,7 @@
       url: '/start',
       templateUrl: 'views/startPage.html',
       controller: 'StartPageController as vm',
+      hideNavbar: true,
       resolve: {
         subjects: function (learnService) {
           return learnService.getAllSubjects();
