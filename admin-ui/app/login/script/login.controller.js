@@ -9,9 +9,13 @@
     vm.authenticate = function (provider) {
       $auth.authenticate(provider)
         .then(function (res) {
-
-
-
+          authService.authenticateUser({
+            id: 1,
+            fullName: 'Calin Nicoara',
+            email: 'calin2811@gmail.com',
+            imageLink: 'https://avatars2.githubusercontent.com/u/2725593?v=3&s=400'
+                                       })
+            .then(successLogin);
 
           return res
         })
@@ -25,8 +29,12 @@
           successLogin();
         }
         else {
+          vm.busy = true;
           authService.getAuthenticatedUser()
-            // .then(successLogin);
+            .then(successLogin)
+            .catch(function () {
+              vm.busy = false;
+            })
         }
       }
       else {
@@ -37,8 +45,9 @@
     verifyAuthentication();
 
     function successLogin() {
+      // vm.busy = false;
       socket.initialize();
-      $state.go($state.params.to, $state.params.toParams, {location: 'replace'});
+      $state.go($state.params.to || 'learn', $state.params.toParams, {location: 'replace'});
     }
 
     return vm;
