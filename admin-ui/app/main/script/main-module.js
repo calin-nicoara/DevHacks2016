@@ -11,7 +11,6 @@
       'ngMessages',
       'ngProgress',
       'ngMaterial',
-      'uiGmapgoogle-maps',
       'MadSkillsDeveloper.login',
       'MadSkillsDeveloper.learn'
   ])

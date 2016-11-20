@@ -10,10 +10,10 @@
 
     vm.navbarItems = [
       {
-        title: 'Learn',
-        description: 'Strengthen your skills!',
+        title: 'Subjects',
+        description: 'Select your subjects capable for your skills!',
         icon: 'css/icons/learn.svg',
-        state: 'learn'
+        state: 'selectSubject'
       },
       {
         title: 'Study groups',
