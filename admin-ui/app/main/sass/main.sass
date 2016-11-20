@@ -7,3 +7,49 @@ body
 .main-view:before
   background: url("icons/background.png") no-repeat
   background-opa: .3
+
+.whiteframedemoBasicClassUsage
+  /* For breakpoint `-xs`
+  /* For breakpoint `-sm`
+  /* For breakpoint `-md`
+  /* For breakpoint `-gt-md`
+  md-whiteframe
+    background: #fff
+    margin: 30px
+    height: 100px
+
+@media (max-width: 599px)
+  .whiteframedemoBasicClassUsage md-whiteframe
+    margin: 7px
+    height: 50px
+    background-color: #c8e4fa
+    > span
+      font-size: 0.4em
+
+@media (min-width: 600px) and (max-width: 959px)
+  .whiteframedemoBasicClassUsage md-whiteframe
+    margin: 20px
+    height: 75px
+    > span
+      font-size: 0.6em
+
+@media (min-width: 960px) and (max-width: 1279px)
+  .whiteframedemoBasicClassUsage md-whiteframe
+    margin: 20px
+    height: 90px
+    background-color: #fcddde
+    > span
+      font-size: 0.9em
+
+@media (min-width: 1280px)
+  .whiteframedemoBasicClassUsage md-whiteframe
+    margin: 25px
+    height: 100px
+    background-color: #F2FCE2
+    > span
+      font-size: 1.0em
+
+md-card-title-media img
+  height: 80%
+.md-headline
+  margin-right: 10px
