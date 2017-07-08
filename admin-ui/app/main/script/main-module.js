@@ -6,7 +6,6 @@
       'ngResource',
       'ngSanitize',
       'ui.router',
-      'ngCookies',
       'toastr',
       'ngMessages',
       'ngProgress',
